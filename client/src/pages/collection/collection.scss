@@ -1,0 +1,130 @@
+@mixin respond($breakpoint) {
+  @if $breakpoint == phone {
+      @media only screen and (max-width: 37.5em) { @content };    //600px
+  }
+  @if $breakpoint == tab-port {
+      @media only screen and (max-width: 56.25em) { @content };     //900px
+  }
+  @if $breakpoint == tab-land {
+      @media only screen and (max-width: 75em) { @content };    //1200px
+  }
+  @if $breakpoint == big-desktop {
+      @media only screen and (min-width: 112.5em) { @content };    //1800
+  }
+}
+
+$color-primary: #55c57a;
+$color-primary-light: #7ed56f;
+$color-primary-dark: #28b485;
+$color-black: #000;
+
+.title {
+  font-size: 38px;
+text-transform: uppercase;
+font-weight: 700;
+display: flex;
+justify-content: flex-start;
+background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
+-webkit-background-clip: text;
+background-clip: text;
+color: transparent;
+
+transition: all .2s;
+letter-spacing: .2rem;
+&:hover {
+    transform: skewY(2deg) skewX(15deg) scale(1.1);
+    text-shadow: .5rem 1rem 2rem rgba($color-black, .2);
+}
+  margin: 20px auto 20px;
+
+  @include respond(tab-port) {
+    font-size: 20px;
+    
+  }
+
+  &__info{
+    width: 90vw;
+    margin-bottom: 5px;
+    color: red;
+    padding: 10px;
+    border: 1px solid red;
+    font-size: 15px;
+  }
+}
+
+
+.colorInfo{
+ display: none;
+
+  @include respond(tab-port){
+    display: flex;
+    width: 100vw;
+    margin-top: 10px;
+    justify-content: space-evenly;
+  }
+
+
+  &__container{
+   
+    &__color{
+       display: flex;
+       align-items: center;
+       justify-content: center;
+
+      &--red{
+        width: 20px;
+        height: 20px;
+        background-color: rgba(red,0.6);
+        border: 2px solid red;
+      }
+
+      &--blue{
+        width: 20px;
+        height: 20px;
+        background-color:rgba(blue,0.6);
+        border: 2px solid blue;
+      }
+
+
+      &--grey{
+        width: 20px;
+        height: 20px;
+        background-color: #eee;
+        border: 2px solid black;
+      }
+    }
+  }
+  
+}
+
+.collection-page {
+    display: flex;
+    flex-direction: column;
+   
+     align-items: center;
+   
+  
+  
+    .items {
+      display: grid;
+      margin-top: 10px;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-gap: 10px;
+     
+      @include respond(tab-port){
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      & .collection-item {
+        margin-bottom: 30px;
+       
+
+        @include respond(tab-port){
+          margin-right: 5px;
+          margin-left: 10px;
+        }
+        
+      }
+    }
+  }

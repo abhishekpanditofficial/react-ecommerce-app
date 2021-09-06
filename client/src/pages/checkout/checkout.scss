@@ -1,0 +1,280 @@
+@mixin respond($breakpoint) {
+  @if $breakpoint == phone {
+      @media only screen and (max-width: 37.5em) { @content };    //600px
+  }
+  @if $breakpoint == tab-port {
+      @media only screen and (max-width: 56.25em) { @content };     //900px
+  }
+  @if $breakpoint == tab-land {
+      @media only screen and (max-width: 75em) { @content };    //1200px
+  }
+  @if $breakpoint == big-desktop {
+      @media only screen and (min-width: 112.5em) { @content };    //1800
+  }
+}
+
+$color-primary: #55c57a;
+$color-primary-light: #7ed56f;
+$color-primary-dark: #28b485;
+$color-black: #000;
+.feedbackText{
+  text-decoration: none;
+  color: $color-primary-dark;
+  font-size: 20px;
+  padding-bottom: 20px;
+  margin-top: -15px;
+}
+
+.endText{
+  color: red;
+  border: 1px solid red;
+  margin-top: 10px;
+  padding: 10px;
+}
+
+.checkout-page {
+    width: 55%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 50px auto 0;
+  
+      @include respond(tab-port) {
+        width: 100vw;
+        margin: 20px auto 0;
+      }
+  
+
+     .order-popup {
+      width: 100%;
+      min-height: 70vh;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 10px auto 0;
+      background-image: linear-gradient(to right, rgba($color-black,.9), rgba($color-black,.90));
+      transition: all .20s;
+
+    .presetText{
+      color: $color-primary-dark;
+      margin-top: 20px;
+    }
+
+    
+     .bottom-skew{
+       width: 100%;
+       height: 20%;
+       background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
+       padding-top: 60px;
+       padding-right: 10px;
+       color: white;
+      position: absolute;
+      top: 80%;
+      bottom: 0;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      clip-path: polygon(100% 0,100% 0,100% 100%,0 100%);
+
+     }
+
+     .back-arrow{
+       position: absolute;
+       top: 0;
+       left: 0;
+       cursor: pointer;
+       padding: 10px;
+       font-size: 30px;
+       font-weight: 900;
+       text-align: center;
+       color:white;
+       background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
+     }
+
+     .back-to-cart-text {
+       position: absolute;
+       top: 25px;
+       cursor: pointer;
+       left: 50px;
+       color: white;
+       margin-left: 10px;
+     }
+     
+
+        .form-order{
+          width: 80%;
+          height: 80%;
+          background-color: rgba($color: #ffffff, $alpha: 0.2);
+        }
+
+        .success-box{
+        transform: translateY(-40px);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+          &__header{
+            font-size: 25px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            font-weight: 700;
+            display: inline-block;
+            background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            
+            transition: all .2s;
+            letter-spacing: .2rem;
+            &:hover {
+                transform: skewY(2deg) skewX(15deg) scale(1.1);
+                text-shadow: .5rem 1rem 2rem rgba($color-black, .2);
+            }
+          }
+
+          &__detail{
+          color: white;
+          font-size: 20px;
+          font-weight: 200;
+        }
+
+        &__price{
+          margin-top: 40px;
+          color: white;
+          font-size: 45px;
+          font-weight: 700;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+
+          &--text{
+            font-size: 25px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            font-weight: 700;
+            display: inline-block;
+            background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            
+            transition: all .2s;
+            letter-spacing: .2rem;
+            &:hover {
+                transform: skewY(2deg) skewX(15deg) scale(1.1);
+                text-shadow: .5rem 1rem 2rem rgba($color-black, .2);
+            }
+          }
+        }
+
+        }
+
+  }
+
+     .checkout-title{
+      font-size: 25px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      font-weight: 700;
+      display: inline-block;
+      background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      
+      transition: all .2s;
+      letter-spacing: .2rem;
+      &:hover {
+          transform: skewY(2deg) skewX(15deg) scale(1.1);
+          text-shadow: .5rem 1rem 2rem rgba($color-black, .2);
+      }
+     }
+
+
+    .checkout-header {
+      width: 100%;
+      padding: 10px 0;
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid darkgrey;
+
+      @include respond(tab-port) {
+        border: 0px;
+        padding: 0px;
+      }
+
+     /*  @include respond(tab-port) {
+        color: black;
+      } */
+  
+      .header-block {
+        text-transform: capitalize;
+        width: 23%;
+
+        @include respond(tab-port) {
+          display: none;
+        }
+
+        @include respond(tab-port) {
+          width: 30%;
+        }
+  
+        &:last-child {
+          width: 8%;
+
+           @include respond(tab-port) {
+             display: none;
+           }
+        }
+      }
+    }
+  .alert-text {
+    color: red;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid orangered;
+
+  }
+    .total {
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   margin-top: 40px;
+   margin-bottom: 10px;
+   font-size: 36px;
+   
+     
+   @include respond(tab-port) {
+        margin-top: 10px;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        transform: translateX(-120px);
+        font-size: 18px;
+        color: rgba(#000,.6);
+      }
+
+      &__price{
+
+
+        @include respond(tab-port){
+          font-size: 36px;
+          color: $color-primary-dark;
+        }
+      }
+
+    }
+
+    .cbutton-container{
+     margin-bottom: 100px;
+
+       @include respond(tab-port){
+        transform: translateX(80px) translateY(-70px);
+        margin-bottom: 0px;
+       }
+
+    }
+}

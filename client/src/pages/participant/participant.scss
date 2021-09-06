@@ -1,0 +1,145 @@
+@mixin respond($breakpoint) {
+    @if $breakpoint == phone {
+        @media only screen and (max-width: 37.5em) { @content };    //600px
+    }
+    @if $breakpoint == tab-port {
+        @media only screen and (max-width: 56.25em) { @content };     //900px
+    }
+    @if $breakpoint == tab-land {
+        @media only screen and (max-width: 75em) { @content };    //1200px
+    }
+    @if $breakpoint == big-desktop {
+        @media only screen and (min-width: 112.5em) { @content };    //1800
+    }
+  }
+  $color-primary: #55c57a;
+$color-primary-light: #7ed56f;
+$color-primary-dark: #28b485;
+$color-black: #000;
+
+.clipboardText{
+    color: $color-primary-dark;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    width: 90vw;
+}
+
+.share{
+display: flex;
+justify-content: space-around;
+margin-bottom: 10px;
+&__whatsapp{
+    text-decoration: none;
+    font-size: 12px;
+    color: white;
+    padding: 5px;
+    background-color: $color-primary-light;
+}
+&__facebook{
+    text-decoration: none;
+    color: white;
+    padding: 5px;
+    background-color: blue;
+}
+&__clipboard{
+    text-decoration: none;
+    color:#eee;
+    padding: 5px;
+    background-color: black; 
+}
+
+}
+
+.Participant__Page{
+   
+
+    display: none;
+
+    @include respond(tab-port){
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__title{
+        font-size: 25px;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+        font-weight: 700;
+        display: inline-block;
+        background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        
+        transition: all .2s;
+        letter-spacing: .2rem;
+        &:hover {
+            transform: skewY(2deg) skewX(15deg) scale(1.1);
+            text-shadow: .5rem 1rem 2rem rgba($color-black, .2);
+        }
+       }
+
+       &__container{
+           width: 80vw;
+           height: 40vh;
+
+
+           &__image{
+               width: 80vw;
+               height: 40vh;
+           }
+       }
+
+       &__name{
+           font-size: 30px;
+           font-weight: 700;
+           margin-top: 10px;
+           margin-bottom: 7px;
+       }
+
+       &__message{
+           font-size: 18px;
+           padding: 5px;
+           border: 1px solid $color-primary-dark;
+           width: 80vw;
+           margin-bottom: 7px;
+       }
+
+       &__likeContainer{
+
+            &--like{
+
+            }
+
+            &--likeshort{
+                width: 50px;
+                height: 50px;
+            }
+
+            &__message{
+                font-size: 16px;
+                font-weight: 700;
+                color: $color-primary-dark;
+
+            }
+       }
+
+       &__total{
+           margin: 5px;
+           padding: 5px;
+           border: 1px solid $color-primary-dark;
+       }
+
+       &__registerContest{
+           text-decoration: none;
+           text-transform: uppercase;
+           padding: 10px;
+           background-color: $color-primary-dark;
+           color: white;
+           font-size: 20px;
+           font-size: 600;
+       }
+
+}

@@ -1,0 +1,90 @@
+$color-primary: #55c57a;
+$color-primary-light: #7ed56f;
+$color-primary-dark: #28b485;
+@mixin respond($breakpoint) {
+  @if $breakpoint == phone {
+      @media only screen and (max-width: 37.5em) { @content };    //600px
+  }
+  @if $breakpoint == tab-port {
+      @media only screen and (max-width: 56.25em) { @content };     //900px
+  }
+  @if $breakpoint == tab-land {
+      @media only screen and (max-width: 75em) { @content };    //1200px
+  }
+  @if $breakpoint == big-desktop {
+      @media only screen and (min-width: 112.5em) { @content };    //1800
+  }
+}
+
+.header {
+    height: 70px;
+    width: 100%;
+    display: flex;
+  
+ 
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    background-image: linear-gradient(to right bottom,
+     $color-primary-light, $color-primary-dark);
+  
+   
+
+    .logo-container {
+      /* height: 100%;
+      width: 70px;
+      padding: 25px;
+      margin-bottom: 20px;
+      position: relative; */
+      display: flex;
+      width:350px;
+      transform: translateX(-40px);
+
+       &__logo{
+        width: 60vw;
+        height: 13vh;
+
+        
+        
+
+        @include respond(tab-port){
+          width: 62vw;
+          height: 13vh;
+        }
+       }
+  
+    }
+
+
+    .logo-text{
+      position: absolute;
+      left: 110px;
+      top: 25px;
+      font-size: 25px;
+      font-weight: 700;
+      color: white;
+
+      @include respond(tab-port) {
+       left: 90px;
+      }
+    }
+  
+    .options {
+      width: 50%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      margin-right: 10px;
+  
+      .option {
+        padding: 10px 15px;
+        cursor: pointer;
+        text-decoration: none;
+        color: white;
+      }
+
+    
+    }
+  }
+  

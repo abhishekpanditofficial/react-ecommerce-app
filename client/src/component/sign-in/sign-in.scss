@@ -1,0 +1,42 @@
+$color-primary: #55c57a;
+$color-primary-light: #7ed56f;
+$color-primary-dark: #28b485;
+$color-black: #000;
+@mixin respond($breakpoint) {
+  @if $breakpoint == phone {
+      @media only screen and (max-width: 37.5em) { @content };    //600px
+  }
+  @if $breakpoint == tab-port {
+      @media only screen and (max-width: 56.25em) { @content };     //900px
+  }
+  @if $breakpoint == tab-land {
+      @media only screen and (max-width: 75em) { @content };    //1200px
+  }
+  @if $breakpoint == big-desktop {
+      @media only screen and (min-width: 112.5em) { @content };    //1800
+  }
+}
+
+.sign-in{
+    width: 380px;
+    display: flex;
+    flex-direction: column;
+
+
+    @include respond(tab-port){
+        width: 80vw;
+    }
+
+    .title{
+        margin: 10px 0px;
+    }
+
+    .h2Changer{
+        color: $color-primary-dark;
+    }
+
+    .buttons {
+         display: flex;
+         justify-content:center;    
+        }
+}

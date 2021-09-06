@@ -1,0 +1,209 @@
+$color-primary: #55c57a;
+$color-primary-light: #7ed56f;
+$color-primary-dark: #28b485;
+$color-black: #000;
+@mixin respond($breakpoint) {
+  @if $breakpoint == phone {
+      @media only screen and (max-width: 37.5em) { @content };    //600px
+  }
+  @if $breakpoint == tab-port {
+      @media only screen and (max-width: 56.25em) { @content };     //900px
+  }
+  @if $breakpoint == tab-land {
+      @media only screen and (max-width: 75em) { @content };    //1200px
+  }
+  @if $breakpoint == big-desktop {
+      @media only screen and (min-width: 112.5em) { @content };    //1800
+  }
+}
+
+body {
+  padding: 0 20px;
+  @include respond(tab-port){
+    background-color:white;
+    padding: 0;
+  }
+}
+
+.linkText{
+  text-decoration: none;
+  color: black;
+}
+.footerLink{
+  color: white;
+  text-decoration: none;
+  margin-top: 15px;
+  background-color: #000;
+  padding: 5px;
+}
+
+.select-city{
+height: 70vh;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+  &__header{
+    font-size: 20px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    font-weight: 700;
+    display: inline-block;
+    background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    
+    transition: all .2s;
+    letter-spacing: .2rem;
+    &:hover {
+        transform: skewY(2deg) skewX(15deg) scale(1.1);
+        text-shadow: .5rem 1rem 2rem rgba($color-black, .2);
+    }
+  }
+
+
+  &__button{
+     width: 80vw;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     height: 7vh;
+     padding: 10px px;
+     text-transform: uppercase;
+     background-color: #fff;
+     color: $color-black;
+     border: 1px solid $color-primary-dark;
+     margin-bottom: 10px;
+
+     &:hover,&:active,&:visited,&::after{
+       background-color: $color-primary-dark;
+     }
+  }
+
+}
+
+.footer{
+  height: 70px;
+  width: 100%;
+  display: flex;
+  color: white;
+  font-size: 20px;
+  font-weight: 200;
+/*   justify-content:flex-end; */
+ flex-direction: column;
+  padding: 10px;
+  align-items: center;
+   position: relative;
+  background-image: linear-gradient(to right bottom,
+   $color-primary-light,$color-primary-dark);
+
+  .team-text{
+    font-weight: 700;
+    border: 2px solid white;
+    padding: 10px;
+    cursor: pointer;
+    position: absolute;
+    left: 10px;
+  }
+
+   .team{
+    position: absolute;
+    top: -390%;
+    width: 30%;
+    min-height: 40vh;
+    background-color:white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border:2px solid black;
+
+    @include respond(tab-port) {
+      width: 90%;
+      background-color:black;
+      display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 30vh;
+
+    }
+
+    &__header{
+      font-size: 25px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      font-weight: 700;
+      display: inline-block;
+      background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      
+      transition: all .2s;
+      letter-spacing: .2rem;
+      &:hover {
+          transform: skewY(2deg) skewX(15deg) scale(1.1);
+          text-shadow: .5rem 1rem 2rem rgba($color-black, .2);
+      }
+    }
+
+    &__box{
+      padding: 5px;
+     
+      width: 90%;
+      height: 90%;
+      
+   
+
+
+      &__member{
+        padding: 20px;
+        position: relative;
+        margin-bottom: 10px;
+        background-color: black;
+
+        @include respond(tab-port){
+         padding: 10px;
+        }
+
+        &__photo{
+          max-width: 50px;
+          height: 50px;
+
+        
+        }
+
+        &__instagram {
+          width: 10%;
+          height:35%;
+          position: absolute;
+          top: 45%;
+          left: 25%;
+        }
+
+        &__instagram--text{
+          font-size: 15px;
+          position: absolute;
+          top: 50%;
+          left: 35%;
+          color: white;
+          text-decoration: none;
+        }
+
+        &__name {
+          position: absolute;
+          font-size: 15px;
+          top: 10%;
+          left: 27%;
+        }
+
+      }
+    }
+
+    }
+ }
+
+ 
+  
+ 
